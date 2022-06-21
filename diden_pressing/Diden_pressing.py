@@ -1,4 +1,4 @@
-
+#thi is the code of the application
 from tkinter import *
 import sqlite3
 from datetime import date
@@ -14,7 +14,7 @@ database_cursor.execute("SELECT ID,clothe_name,clothe_price from CLOTHES")
 clothes_all=database_cursor.fetchall()
 clothes=[]
 prices=[]
-clothe_ID=[]
+clothe_ID=[] 
 for i in range(len(clothes_all)) :
     clothe_ID.append(clothes_all[i][0])
     clothes.append(clothes_all[i][1])
