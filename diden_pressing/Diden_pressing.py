@@ -1,4 +1,3 @@
-#thi is the code of the application
 from tkinter import *
 import sqlite3
 from datetime import date
