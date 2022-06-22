@@ -6,13 +6,13 @@ from tkinter import ttk
 from tkinter import messagebox
 treeview_counter=0
 search_records=[]
+clothes=[]
+prices=[]
+clothe_ID=[]
 database_connect=sqlite3.connect('Pressing_base_donne.db')
 database_cursor=database_connect.cursor()
 database_cursor.execute("SELECT ID,clothe_name,clothe_price from CLOTHES")
 clothes_all=database_cursor.fetchall()
-clothes=[]
-prices=[]
-clothe_ID=[]
 for i in range(len(clothes_all)) :
     clothe_ID.append(clothes_all[i][0])
     clothes.append(clothes_all[i][1])
