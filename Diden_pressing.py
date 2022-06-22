@@ -4,7 +4,6 @@ from datetime import date
 from datetime import datetime
 from tkinter import ttk
 from tkinter import messagebox
-
 treeview_counter=0
 search_records=[]
 database_connect=sqlite3.connect('Pressing_base_donne.db')
@@ -340,7 +339,6 @@ def change_theme() :
 Theme_Button=Button(width=15,height=2,text='changer le theme',bg='black',command=change_theme,fg='white')
 Theme_Button.place(x=widthx-120,y=10)
 #not paid_clients button -> shows all the records about the clients who doesn't pay yet
-
 def show_all_unpaid() :
     database_connect=sqlite3.connect('Pressing_base_donne.db')
     database_cursor=database_connect.cursor()
@@ -364,12 +362,7 @@ def show_all_unpaid() :
     all_records_treeview_unpaid.heading(7,text='Payé')
     for i in range(len(all_record_unpaid)) :
         all_records_treeview_unpaid.insert('',"end",values=(all_record_unpaid[i][0],all_record_unpaid[i][1],all_record_unpaid[i][2],all_record_unpaid[i][3],all_record_unpaid[i][4],all_record_unpaid[i][5],all_record_unpaid[i][6]))
-    
     database_connect.commit()
 not_paid_clients=Button(width=20,height=3,font=('arial',18),command=show_all_unpaid,text="Clients non payé",bg='purple',fg='white')
 not_paid_clients.place(x=450,y=heighty-230)
-
-
-
-
 main_window.mainloop()
