@@ -337,7 +337,7 @@ def change_theme() :
         Prix_total_label.config(bg='SystemButtonFace',fg="black")
         Prix_total_label_value.config(bg='SystemButtonFace',fg="black")
 Theme_Button=Button(width=15,height=2,text='changer le theme',bg='black',command=change_theme,fg='white')
-Theme_Button.place(x=widthx-120,y=10)
+Theme_Button.place(x=widthx-220,y=50)
 #not paid_clients button -> shows all the records about the clients who doesn't pay yet
 def show_all_unpaid() :
     database_connect=sqlite3.connect('Pressing_base_donne.db')

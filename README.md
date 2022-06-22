@@ -21,7 +21,7 @@ The other buttons are
 ## Downlaoding way : 
 just download the file called exe file and run the app which is .exe :D ! 
 or clone the files together inside a file then open cmd inside that file and write 
->1 - pip install pyinstaller 
->2 - pyinstaller -w --onefile Diden_pressing.py # "that will take some tile"  
->3 - go to the dist file that will be added to the files and bring the .exe file to the main file 
+>1 - pip install pyinstaller  <br />
+>2 - pyinstaller -w --onefile Diden_pressing.py # "that will take some tile"  <br />
+>3 - go to the dist file that will be added to the files and bring the .exe file to the main file <br />
 >4 - Done ! 
