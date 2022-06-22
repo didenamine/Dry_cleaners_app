@@ -18,13 +18,9 @@ The other buttons are
 2 show all records of the clients 'that didn't pay'
 3 show the prices and there is an option there to modify a price 
 4 search about a client threw the number it was given while writting the commande -> phone number or rank 
-<<<<<<< HEAD
 ## Downlaoding way : 
-=======
-# Downlaoding way : 
->>>>>>> fab5e44c1a807ab7d56226d0203c2596ccdb20fa
 just download the file called exe file and run the app which is .exe :D ! 
-or clone the files together inside a file then open cmd inside that file and write 
+or clone the files together inside a file then open cmd inside that file and write <br />
 >1 - pip install pyinstaller  <br />
 >2 - pyinstaller -w --onefile Diden_pressing.py # "that will take some tile"  <br />
 >3 - go to the dist file that will be added to the files and bring the .exe file to the main file <br />
