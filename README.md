@@ -1,4 +1,4 @@
-# Pressing-application-
+# Dry cleaners application 
 This app is coded using Tkinter and sqlite3 -> python and it aims to help the dry cleaners to organize their clients commands and get rid of the boring paper use.
 __________________________________________________________
 That was the source code of the app 
