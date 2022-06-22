@@ -18,7 +18,11 @@ The other buttons are
 2 show all records of the clients 'that didn't pay'
 3 show the prices and there is an option there to modify a price 
 4 search about a client threw the number it was given while writting the commande -> phone number or rank 
+<<<<<<< HEAD
 ## Downlaoding way : 
+=======
+# Downlaoding way : 
+>>>>>>> fab5e44c1a807ab7d56226d0203c2596ccdb20fa
 just download the file called exe file and run the app which is .exe :D ! 
 or clone the files together inside a file then open cmd inside that file and write 
 >1 - pip install pyinstaller  <br />
