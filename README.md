@@ -20,3 +20,8 @@ The other buttons are
 4 search about a client threw the number it was given while writting the commande -> phone number or rank 
 # Downlaoding way : 
 just download the file called exe file and run the app which is .exe :D ! 
+or clone the files together inside a file then open cmd inside that file and write 
+1 - pip install pyinstaller 
+2 - pyinstaller -w --onefile Diden_pressing.py # "that will take some tile"  
+3 - go to the dist file that will be added to the files and bring the .exe file to the main file 
+4 - Done ! 
