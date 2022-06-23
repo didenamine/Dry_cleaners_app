@@ -111,7 +111,7 @@ paid_label_answer=Label(width=15,text="payé ou pas:",font=('arial',18))
 paid_label_answer.place(x=0,y=520)
 #_____________________________________________
 #last button which add the commands to the data base 
-def save_commande() :
+def save_commande(event) :
       global paid_state
       global to_add_inside_sql
       global price_total
@@ -234,20 +234,24 @@ def search_about_commande () :
     Numero_tlf_client_search_label.place(x=0,y=10)
     Numero_tlf_client_search_entry=Entry(search_window,width=20,font='arial')
     Numero_tlf_client_search_entry.place(x=190,y=10)
-    def search_about_client() :
+    def search_about_client(event) :
        global treeview_search_counter
        global search_records
        database_connect=sqlite3.connect('Pressing_base_donne.db')
        database_cursor=database_connect.cursor()
        database_cursor.execute("SELECT name_client,prename_client,phone_client,date_commande,hour_commande,sum(clothe_total_price) as Total_commade,Paid_y_n from COMMANDE where phone_client=('%s') and Paid_y_n='NON' group by date_commande,name_client "%str(Numero_tlf_client_search_entry.get()))
        search_records=database_cursor.fetchall()
-       for i in range(len(search_records)) :
+       if len(search_records)==0 :
+        messagebox.showinfo('Error',"Il n'ya pas !")
+       else :
+        for i in range(len(search_records)) :
             commands_treeview_search.insert('','end',iid=treeview_search_counter,values=(search_records[i][0],search_records[i][1],search_records[i][2],search_records[i][3],search_records[i][4],search_records[i][5],search_records[i][6]))
             treeview_search_counter+=1
        treeview_search_counter=0
        database_connect.commit()
     search_button=Button(search_window,width=10,text="chercher ",height=2,command=search_about_client)
     search_button.place(x=420,y=0)
+    search_window.bind('<Return>',search_about_client)
     commands_frame_search=Frame(search_window)
     commands_frame_search.place(x=0,y=100)
     commands_treeview_search=ttk.Treeview(search_window,columns=(1,2,3,4,5,6,7),show='headings',height=9)
