@@ -4,6 +4,8 @@ from datetime import date
 from datetime import datetime
 from tkinter import ttk
 from tkinter import messagebox
+from customtkinter import *
+
 treeview_counter=0
 search_records=[]
 clothes=[]
@@ -88,8 +90,11 @@ def ajouter_commande() :
     quantity_value.set(1)
     clothes_name.set("Choisir")
 #commande -> add to the treeview in the main page 
-Add_commande_main_window=Button(main_window,text="Ajouter la commande",width=20,height=2,bg='gray',font=("arial",15),command=ajouter_commande)
-Add_commande_main_window.place(x=30,y=270)
+
+
+Add_commande_main_window=CTkButton(corner_radius=15,fg_color="grey",width=50,height=50,text="Ajouter la commande",text_color="black",text_font=('arial',15)
+,hover=True,hover_color='green')
+Add_commande_main_window.place(x=30,y=280)
 #_________________________________________________
 #paid or no buttons and label
 paid_state=""
@@ -111,7 +116,7 @@ paid_label_answer=Label(width=15,text="payé ou pas:",font=('arial',18))
 paid_label_answer.place(x=0,y=520)
 #_____________________________________________
 #last button which add the commands to the data base 
-def save_commande(event) :
+def save_commande() :
       global paid_state
       global to_add_inside_sql
       global price_total
@@ -139,8 +144,9 @@ def save_commande(event) :
       treeview_counter=0
       to_add_inside_sql=[]
       messagebox.showinfo("Terminer!","la commande est faite !")
-End_commande_button=Button(width=20,height=2,text="Terminer La Commande",font=('arial',18),bg='green',command=save_commande)
-End_commande_button.place(x=20,y=570)
+End_commande_button=CTkButton(corner_radius=15,fg_color="green",width=70,height=70,text="Terminer la commande",text_color="black",text_font=('arial',15)
+,hover=True,hover_color='light green')
+End_commande_button.place(x=20,y=650)
 #_____________________________________________
 #frame and treeview commands
 commands_frame=Frame(main_window)
@@ -176,7 +182,8 @@ def delete_selected() :
     Prix_total_label_value.config(text=price_total)
     commands_frame.update() 
     commands_treeview.update()
-Delete_from_treeviex=Button(text="Effacer Command",font=('arial',15),bg='red',command=delete_selected)
+Delete_from_treeviex=CTkButton(text="Effacer Command",hover=True,hover_color='green',
+width=200,height=50,text_font=('arial',15),corner_radius=15,text_color='black',fg_color='red',command=delete_selected)
 Delete_from_treeviex.place(x=600,y=310)
 #____________________________________________________________________
 #all records
