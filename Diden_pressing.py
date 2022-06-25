@@ -324,6 +324,7 @@ def change_theme() :
         paid_label_answer.config(bg='black',fg="white")
         Prix_total_label.config(bg='black',fg="white")
         Prix_total_label_value.config(bg='black',fg="white")
+        delete_client_Label.config(bg='black',fg='red')
     else :
         Theme_Button.config(bg='black',fg='white')
         main_window.config(bg='SystemButtonFace')
@@ -336,6 +337,7 @@ def change_theme() :
         paid_label_answer.config(bg='SystemButtonFace',fg="black")
         Prix_total_label.config(bg='SystemButtonFace',fg="black")
         Prix_total_label_value.config(bg='SystemButtonFace',fg="black")
+        delete_client_Label.config(bg='SystemButtonFace',fg='red')
 Theme_Button=Button(width=15,height=2,text='changer le theme',bg='black',command=change_theme,fg='white')
 Theme_Button.place(x=widthx-220,y=50)
 #not paid_clients button -> shows all the records about the clients who doesn't pay yet
