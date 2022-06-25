@@ -368,7 +368,6 @@ def show_all_unpaid() :
 not_paid_clients=Button(width=20,height=3,font=('arial',18),command=show_all_unpaid,text="Clients non payé",bg='purple',fg='white')
 not_paid_clients.place(x=450,y=heighty-230)
 #deleting button -> only accessible by the owner with a code that he can only set
-
 def delete_client() :
     def done_password(event) :
         if Enter_password.get()=='1234' :#the owner can set this password 
@@ -377,12 +376,9 @@ def delete_client() :
          delete_window_client.title("Supprimer un client")
          database_connect=sqlite3.connect('Pressing_base_donne.db')
          database_cursor=database_connect.cursor()
-         database_cursor.execute("SELECT name_client,prename_client,phone_client,date_commande,hour_commande,sum(clothe_total_price),Paid_y_n from COMMANDE  GROUP BY phone_client,name_client,prename_client order by phone_client ASC,date_commande ASC,hour_commande ASC")
+         database_cursor.execute("SELECT name_client,prename_client,phone_client,date_commande,hour_commande,sum(clothe_total_price),Paid_y_n from COMMANDE GROUP BY phone_client,name_client,prename_client order by phone_client ASC,date_commande ASC,hour_commande ASC")
          all_record=database_cursor.fetchall()
-         records_of_clients=Toplevel()
-         records_of_clients.title("Records de clients")
-         records_of_clients.geometry(str(widthx)+"x"+str(heighty))
-         all_records_frame=Frame(records_of_clients)
+         all_records_frame=Frame(delete_window_client)
          all_records_frame.place(x=0,y=0)
          all_records_treeview=ttk.Treeview(delete_window_client,columns=(1,2,3,4,5,6,7),show='headings',height=20)
          all_records_treeview.place(x=0,y=0)
@@ -395,12 +391,22 @@ def delete_client() :
          all_records_treeview.heading(5,text='heur_commande')
          all_records_treeview.heading(6,text='prix_total')
          all_records_treeview.heading(7,text='Payé')
-         sum_of_prices_amount=0
+         def Supprimer() :
+          database_connect=sqlite3.connect('Pressing_base_donne.db')
+          database_cursor=database_connect.cursor()
+          x=all_records_treeview.focus()
+          to_be_deleted=all_record[int(x)][2]
+          all_record.pop(int(x))
+          database_cursor.execute("DELETE FROM COMMANDE WHERE phone_client=('%s')"%to_be_deleted)
+          database_connect.commit()
+          for i in all_records_treeview.get_children() :
+            all_records_treeview.delete(i)
+          for i in range(len(all_record)) :
+            all_records_treeview.insert('','end',iid=i,values=(all_record[i][0],all_record[i][1],all_record[i][2],all_record[i][3],all_record[i][4],all_record[i][5],all_record[i][6])) 
+         delete_client_button_toplevel=Button(delete_window_client,text="Supprimer",bg='red',width=15,height=3,font=('arial',15),command=Supprimer)
+         delete_client_button_toplevel.place(x=(widthx-200)/2,y=heighty-300)
          for i in range(len(all_record)) :
           all_records_treeview.insert('',"end",iid=i,values=(all_record[i][0],all_record[i][1],all_record[i][2],all_record[i][3],all_record[i][4],all_record[i][5],all_record[i][6]))
-          sum_of_prices_amount+=int(all_record[i][5])
-         delete_client_button_toplevel=Button(delete_window_client,text="Supprimer",bg='red',width=15,height=3,font=('arial',15))
-         delete_client_button_toplevel.place(x=(widthx-200)/2,y=heighty-300)
          database_connect.commit()
          delete_window.destroy()
         else :
@@ -417,5 +423,4 @@ delete_client_button=Button(main_window,font=('arial',18),width=15,height=3,text
 delete_client_button.place(x=widthx-400,y=590)
 delete_client_Label=Label(width=30,text="Ce bouton n'est accessible \n qu'au propriétaire principal",fg='red',font=('arial',15))
 delete_client_Label.place(x=widthx-450,y=700)
-
 main_window.mainloop()
