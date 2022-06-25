@@ -5,8 +5,6 @@ from datetime import datetime
 from tkinter import ttk
 from tkinter import messagebox
 from customtkinter import *
-#add a new button that allow the main user (owner ) to delete some clients from the clients data base and this feature depend a password that the 
-#the owner only change
 treeview_counter=0
 search_records=[]
 clothes=[]
