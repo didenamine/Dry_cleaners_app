@@ -18,6 +18,8 @@ The other buttons are <br />
 2 show all records of the clients 'that didn't pay'<br />
 3 show the prices and there is an option there to modify a price <br />
 4 search about a client threw the number it was given while writting the commande -> phone number or rank<br /> 
+5 delete a client from the data base which is only accessible by the owner threw a password <br />
+
 ## Downlaoding way : 
 just download the files (without the readme file ) or clone them inside a file <br /> 
 the open cmd inside that file and do the following commandes (It is recommended to have python inside the pc)<br />
