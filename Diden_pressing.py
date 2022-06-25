@@ -39,7 +39,7 @@ style.map('Treeview',
     background=[('selected','green')])
 #____________________________________________________
 #client Name,Prename,Phone number Entries in the main_window
-Name_client_Label=Label(width=16,text="nom de client :",font=('arial',18))
+Name_client_Label=Label(width=16,text="Nom de client :",font=('arial',18))
 Name_client_Label.place(x=0,y=10)
 Name_client_Entry=Entry(width=20,font='arial')
 Name_client_Entry.place(x=220,y=10)
@@ -100,18 +100,18 @@ paid_state=""
 def YES_paid() :
    global paid_state
    paid_state="OUI"
-   paid_label_answer.config(text="payé ou pas: OUI",fg='green')
+   paid_label_answer.config(text="Payé ou pas: OUI",fg='green')
 def NO_paid() :
     global paid_state
     paid_state="NON"
-    paid_label_answer.config(text="payé ou pas: NON",fg='red')
-paid_label=Label(width=13,text="payé ou pas",font=('arial',18))
+    paid_label_answer.config(text="Payé ou pas: NON",fg='red')
+paid_label=Label(width=13,text="Payé ou pas",font=('arial',18))
 paid_label.place(x=0,y=450)
 paid_YES=Button(text="OUI",font=("arial",18),width=5,bg='green',command=YES_paid)
 paid_YES.place(x=255,y=450)
 paid_No=Button(text="NON",command=NO_paid,bg='red',font=('arial',18),width=5)
 paid_No.place(x=170,y=450)
-paid_label_answer=Label(width=15,text="payé ou pas:",font=('arial',18))
+paid_label_answer=Label(width=15,text="Payé ou pas:",font=('arial',18))
 paid_label_answer.place(x=0,y=520)
 #_____________________________________________
 #last button which add the commands to the data base 
@@ -133,7 +133,7 @@ def save_commande() :
         Name_client_Entry.delete(0,END)
         Prename_client_Entry.delete(0,END)
         Numero_tlf_Entry.delete(0,END)
-        paid_label_answer.config(text="payé ou pas:",fg='black')
+        paid_label_answer.config(text="Payé ou pas:",fg='black')
         clothes_name.set("Choisir")
         quantity_value.set(1)
         price_total=0
@@ -219,7 +219,7 @@ def show_all_records() :
     sum_of_prices.place(x=widthx-500,y=heighty-200)
     amount_of_clients_label=Label(records_of_clients,fg='white',bg='black',text='Nombre de clients :'+str(amount_of_clients),font=('arial',18))
     amount_of_clients_label.place(x=widthx-500,y=heighty-150)
-all_records=Button(width=20,height=3,text="tous les clients",font=('arial',18),bg='black',fg='white',command=show_all_records)
+all_records=Button(width=20,height=3,text="Tous les clients",font=('arial',18),bg='black',fg='white',command=show_all_records)
 all_records.place(x=750,y=heighty-350)
 #_________________________________________________________________
 #search about a commande 
@@ -273,7 +273,7 @@ def search_about_commande () :
        
     client_paid_done=Button(search_window,width=15,text="PAYE",height=2,font="arial",bg="green",command=paid_done)
     client_paid_done.place(x=50,y=400)
-command_search=Button(text="chercher un commande",width=20,height=3,font=('arial',18),bg='orange',command=search_about_commande)
+command_search=Button(text="Chercher un commande",width=20,height=3,font=('arial',18),bg='orange',command=search_about_commande)
 command_search.place(x=450,y=heighty-350)
 #_______________________________________________________________________
 #change the price of a commande
@@ -338,7 +338,7 @@ def change_theme() :
         Prix_total_label.config(bg='SystemButtonFace',fg="black")
         Prix_total_label_value.config(bg='SystemButtonFace',fg="black")
         delete_client_Label.config(bg='SystemButtonFace',fg='red')
-Theme_Button=Button(width=15,height=2,text='changer le theme',bg='black',command=change_theme,fg='white')
+Theme_Button=Button(width=15,height=2,text='Changer le theme',bg='black',command=change_theme,fg='white')
 Theme_Button.place(x=widthx-220,y=50)
 #not paid_clients button -> shows all the records about the clients who doesn't pay yet
 def show_all_unpaid() :
