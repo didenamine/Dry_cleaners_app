@@ -377,7 +377,7 @@ def delete_client() :
          delete_window_client.title("Supprimer un client")
          database_connect=sqlite3.connect('Pressing_base_donne.db')
          database_cursor=database_connect.cursor()
-         database_cursor.execute("SELECT name_client,prename_client,phone_client,date_commande,hour_commande,sum(clothe_total_price),Paid_y_n from COMMANDE where Paid_y_n='OUI' GROUP BY phone_client,name_client,prename_client order by phone_client ASC,date_commande ASC,hour_commande ASC")
+         database_cursor.execute("SELECT name_client,prename_client,phone_client,date_commande,hour_commande,sum(clothe_total_price),Paid_y_n from COMMANDE  GROUP BY phone_client,name_client,prename_client order by phone_client ASC,date_commande ASC,hour_commande ASC")
          all_record=database_cursor.fetchall()
          records_of_clients=Toplevel()
          records_of_clients.title("Records de clients")
