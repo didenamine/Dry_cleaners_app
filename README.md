@@ -21,8 +21,8 @@ The other buttons are <br />
 5 delete a client from the data base which is only accessible by the owner threw a password <br />
 
 ## Downlaoding way : 
-just download the files (without the readme file ) or clone them inside a file <br /> 
-the open cmd inside that file and do the following commandes (It is recommended to have python inside the pc)<br />
+just download the files or clone them inside a file <br /> 
+the open cmd inside that file and do the following commandes (It is recommended to have python inside the pc)<br/>
 1 - pip install pyinstaller  <that will download the pyinstaller library inside the pc > <br />
 2 - pyinstaller -w --onefile Diden_pressing.py # "that will take some time"  <br />
 3 - go to the dist file that will be added to the files and bring the .exe file to the main file 'outside the dist file' <br />
