@@ -92,7 +92,7 @@ def ajouter_commande() :
 #commande -> add to the treeview in the main page 
 
 
-Add_commande_main_window=CTkButton(corner_radius=15,fg_color="grey",width=50,height=50,text="Ajouter la commande",text_color="black",text_font=('arial',15)
+Add_commande_main_window=CTkButton(command = ajouter_commande,corner_radius=15,fg_color="grey",width=50,height=50,text="Ajouter la commande",text_color="black",text_font=('arial',15)
 ,hover=True,hover_color='green')
 Add_commande_main_window.place(x=30,y=280)
 #_________________________________________________
@@ -144,7 +144,7 @@ def save_commande() :
       treeview_counter=0
       to_add_inside_sql=[]
       messagebox.showinfo("Terminer!","la commande est faite !")
-End_commande_button=CTkButton(corner_radius=15,fg_color="green",width=70,height=70,text="Terminer la commande",text_color="black",text_font=('arial',15)
+End_commande_button=CTkButton(command=save_commande,corner_radius=15,fg_color="green",width=70,height=70,text="Terminer la commande",text_color="black",text_font=('arial',15)
 ,hover=True,hover_color='light green')
 End_commande_button.place(x=20,y=650)
 #_____________________________________________
@@ -195,9 +195,9 @@ def show_all_records() :
     records_of_clients=Toplevel()
     records_of_clients.title("Records de clients")
     records_of_clients.geometry(str(widthx)+"x"+str(heighty))
-    all_records_frame=Frame()
+    all_records_frame=Frame(records_of_clients)
     all_records_frame.place(x=0,y=0)
-    all_records_treeview=ttk.Treeview(records_of_clients,columns=(1,2,3,4,5,6,7),show='headings',height=19)
+    all_records_treeview=ttk.Treeview(records_of_clients,columns=(1,2,3,4,5,6,7),show='headings',height=25)
     all_records_treeview.place(x=0,y=0)
     all_records_treeview.heading(1,text='Nom_client')
     all_records_treeview.column("#1",anchor=CENTER, stretch=NO, width=120)
@@ -208,14 +208,6 @@ def show_all_records() :
     all_records_treeview.heading(5,text='heur_commande')
     all_records_treeview.heading(6,text='prix_total')
     all_records_treeview.heading(7,text='Payé')
-    def sort_clients_alpha() :
-        for i in all_records_treeview.get_children() :
-            all_records_treeview.delete(i)
-        all_record.sort()
-        for i in range(len(all_record)) :
-         all_records_treeview.insert('',"end",iid=i,values=(all_record[i][0],all_record[i][1],all_record[i][2],all_record[i][3],all_record[i][4],all_record[i][5],all_record[i][6]))     
-    sort_client=Button(records_of_clients,command=sort_clients_alpha,text="tri alphabétique",width=15,height=2,font="arial")
-    sort_client.place(x=100,y=600)
     sum_of_prices_amount=0
     amount_of_clients=len(all_record)
     for i in range(len(all_record)) :
@@ -223,7 +215,7 @@ def show_all_records() :
         sum_of_prices_amount+=int(all_record[i][5])
     database_connect.commit()
     label_all_clients=Label(records_of_clients,fg='red',text="cette option vous montre\n tous les clients et leurs commandes totales qui ont été payées",font='arial')
-    label_all_clients.place(x=400,y=600)
+    label_all_clients.place(x=400,y=heighty-200)
     sum_of_prices=Label(records_of_clients,fg='green',bg='black',text='bénéfices totales= '+"{:,.2f}".format(sum_of_prices_amount)+' dt',font=('arial',18))
     sum_of_prices.place(x=widthx-500,y=heighty-200)
     amount_of_clients_label=Label(records_of_clients,fg='white',bg='black',text='Nombre de clients :'+str(amount_of_clients),font=('arial',18))
