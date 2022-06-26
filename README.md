@@ -18,7 +18,7 @@ The other buttons are <br />
 4 search about a client threw the number it was given while writting the commande -> phone number or rank<br /> 
 5 delete a client from the data base which is only accessible by the owner threw a password <br />
 
-## Downlaoding way : 
+## Downlaoding way (not obligatory) : 
 just download the files or clone them inside a file <br /> 
 In order to make the app an .exe <br/> :
 open cmd inside that file and do the following commandes(It is recommended to have python>3.7 inside the pc )<br/>
