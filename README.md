@@ -20,8 +20,9 @@ The other buttons are <br />
 
 ## Downlaoding way : 
 just download the files or clone them inside a file <br /> 
-the open cmd inside that file and do the following commandes (It is recommended to have python inside the pc)<br/>
+In order to make the app an .exe <br/> :
+open cmd inside that file and do the following commandes(It is recommended to have python>3.7 inside the pc )<br/>
 1 - pip install pyinstaller  <that will download the pyinstaller library inside the pc > <br />
-2 - pyinstaller -w --onefile Diden_pressing.py # "that will take some time"  <br />
+2 - pyinstaller -w --onefile Pressing_code.py # "that will take some time"  <br />
 3 - go to the dist file that will be added to the files and bring the .exe file to the main file 'outside the dist file' <br />
 4 - Done ! 
