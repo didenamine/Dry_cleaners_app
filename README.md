@@ -19,7 +19,7 @@ The other buttons are <br />
 5 delete a client from the data base which is only accessible by the owner threw a password <br />
 
 ## Downlaoding way (not obligatory) : 
-either clone or download files and open them inside an IDE<br />
+Either clone or download the files and open them inside an IDE<br />
 Or in order to make it an .exe :<br />
 > 1 - clone the files inside one file (without the readme file)<br />
 > 2 - open a terminal inisde that file<br />
