@@ -18,7 +18,7 @@ The other buttons are <br />
 4 search about a client threw the number it was given while writting the commande -> phone number or rank<br /> 
 5 delete a client from the data base which is only accessible by the owner threw a password <br />
 
-## Downlaoding way (not obligatory) : 
+## Downloading way (not obligatory) : 
 Either clone or download the files and open them inside an IDE<br />
 Or in order to make it an .exe :<br />
 > 1 - clone the files inside one file (without the readme file)<br />
