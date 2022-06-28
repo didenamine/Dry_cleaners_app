@@ -19,11 +19,12 @@ The other buttons are <br />
 5 delete a client from the data base which is only accessible by the owner threw a password <br />
 
 ## Downlaoding way (not obligatory) : 
-just download the files as zip or clone them inside a file <br /> 
-In order to make the app an .exe <br/> :
-open cmd inside that file and do the following commandes(It is recommended to have python>3.7 inside the pc )<br/>
-1 - pip install pyinstaller  <that will download the pyinstaller library inside the pc > <br />
-2 - pyinstaller -w --onefile Pressing_code.py # "that will take some time"  <br />
-3 - go to the dist file that will be added to the files and bring the .exe file to the main file 'outside the dist file' <br />
-4 - Done ! <br/>
-
+either clone or download files and open them inside an IDE<br />
+Or in order to make it an .exe :<br />
+> 1 - clone the files inside one file (without the readme file)<br />
+> 2 - open a terminal inisde that file<br />
+> 3 - write pip install cx-freeze<br />
+> 4 - after downloading it write in the same terminal python setup.py build<br /> 
+> 5 - you will find a new file been made called build<br />
+> 6 - Enter in that file and you will see the exe file (Pressing_app.exe)<br />
+> 7 - the app won't work outside of that folder because of it dependencies  <br />
