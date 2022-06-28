@@ -182,7 +182,7 @@ def delete_selected() :
     Prix_total_label_value.config(text=price_total)
     commands_frame.update() 
     commands_treeview.update()
-Delete_from_treeviex=CTkButton(text="Effacer Command",hover=True,hover_color='green',
+Delete_from_treeviex=CTkButton(text="Effacer la Commande",hover=True,hover_color='green',
 width=200,height=50,text_font=('arial',15),corner_radius=15,text_color='black',fg_color='red',command=delete_selected)
 Delete_from_treeviex.place(x=600,y=310)
 #____________________________________________________________________
@@ -371,7 +371,7 @@ not_paid_clients.place(x=450,y=heighty-230)
 #deleting button -> only accessible by the owner with a code that he can only set
 def delete_client() :
     def done_password(event) :
-        if Enter_password.get()=='1234' :#the owner can set this password 
+        if Enter_password.get()=='22307127' :#the owner can set this password 
          delete_window_client=Toplevel()
          delete_window_client.geometry(str(widthx)+"x"+str(heighty))
          delete_window_client.title("Supprimer un client")
@@ -411,7 +411,7 @@ def delete_client() :
          database_connect.commit()
          delete_window.destroy()
         else :
-            messagebox.showerror("Error","message is wrong ")
+            messagebox.showerror("Error","le mot de passe est faux! ")
             delete_window.destroy()
     delete_window=Toplevel()
     delete_window.geometry("400x200")
