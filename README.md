@@ -6,7 +6,7 @@ The app is very user friendly so it contain only 3 inputs :<br />
 1 - Name of the client <br />
 2 - Prename of the client <br />
 3 - and then the number which can be phone number or the ranking number(because some owners work with the rank of the clients for example client number 1 will have the number 1 and 2 will take 2 and so on...
-_________________________________________________________
+_________________________________________________________ 
 there is an option where you can choose the clothe name and under it the quantity 
 then there is the add to the command which will add the chosen clothe to the total command but it won't be commited 
 until the whole commande is done which is the function of the last button after the paid Yes or No option       
