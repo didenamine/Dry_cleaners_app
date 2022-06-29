@@ -20,6 +20,9 @@ for i in range(len(clothes_all)) :
     clothes.append(clothes_all[i][1])
     prices.append(clothes_all[i][2])
 main_window=Tk()
+#Frame of the buttons 
+Buttons_frame=Frame(main_window,bg='grey',width=400,height=190)
+Buttons_frame.place(x=430,y=500)
 #window things
 main_window.title("Pressing El fessi")
 main_window.attributes('-fullscreen', True)  
@@ -42,15 +45,15 @@ style.map('Treeview',
 #client Name,Prename,Phone number Entries in the main_window
 Name_client_Label=Label(width=16,text="Nom de client :",font=('arial',18))
 Name_client_Label.place(x=0,y=10)
-Name_client_Entry=Entry(width=20,font='arial')
+Name_client_Entry=Entry(width=16,font=('arial',18))
 Name_client_Entry.place(x=220,y=10)
 Prename_client_Label=Label(width=15,text="Prénom client:",font=('arial',18))
 Prename_client_Label.place(x=0,y=60)
-Prename_client_Entry=Entry(width=18,font=('arial',18))
+Prename_client_Entry=Entry(width=16,font=('arial',18))
 Prename_client_Entry.place(x=220,y=60)
 Numero_tlf_client=Label(width=15,text="Numero Client :",font=('arial',18))
 Numero_tlf_client.place(x=5,y=105)
-Numero_tlf_Entry=Entry(width=20,font='arial')
+Numero_tlf_Entry=Entry(width=16,font=('arial',18))
 Numero_tlf_Entry.place(x=220,y=105)
 #______________________________________________________
 #clothes and it quantity choices 
@@ -146,7 +149,7 @@ def save_commande() :
       messagebox.showinfo("Terminer!","la commande est faite !")
 End_commande_button=CTkButton(command=save_commande,corner_radius=15,fg_color="green",width=70,height=70,text="Terminer la commande",text_color="black",text_font=('arial',15)
 ,hover=True,hover_color='light green')
-End_commande_button.place(x=20,y=650)
+End_commande_button.place(x=20,y=600)
 #_____________________________________________
 #frame and treeview commands
 commands_frame=Frame(main_window)
@@ -220,8 +223,10 @@ def show_all_records() :
     sum_of_prices.place(x=widthx-500,y=heighty-200)
     amount_of_clients_label=Label(records_of_clients,fg='white',bg='black',text='Nombre de clients :'+str(amount_of_clients),font=('arial',18))
     amount_of_clients_label.place(x=widthx-500,y=heighty-150)
-all_records=Button(width=20,height=3,text="Tous les clients",font=('arial',18),bg='black',fg='white',command=show_all_records)
-all_records.place(x=750,y=heighty-350)
+
+all_records=CTkButton(command=show_all_records,corner_radius=15,fg_color="black",width=150,height=70,text="Tous les clients",text_color="white",text_font=('arial',15),bg_color='grey',
+hover=True,hover_color='black')
+all_records.place(x=640,y=heighty-350)
 #_________________________________________________________________
 #search about a commande 
 treeview_search_counter=0
@@ -274,7 +279,8 @@ def search_about_commande () :
        
     client_paid_done=Button(search_window,width=15,text="PAYE",height=2,font="arial",bg="green",command=paid_done)
     client_paid_done.place(x=50,y=400)
-command_search=Button(text="Chercher un commande",width=20,height=3,font=('arial',18),bg='orange',command=search_about_commande)
+command_search=CTkButton(command=search_about_commande,corner_radius=15,bg_color='grey',fg_color="dark orange",width=70,height=70,text="Chercher un commande",text_color="black",text_font=('arial',10)
+,hover=True,hover_color='Orange')
 command_search.place(x=450,y=heighty-350)
 #_______________________________________________________________________
 #change the price of a commande
@@ -305,8 +311,9 @@ def changing_clothes_infos() :
     change_price.place(x=200,y=519)
     change_entry=Entry(changing_window,width=15,font='arial')
     change_entry.place(x=0,y=519)
-change_price_commande=Button(main_window,text="Changer Prix",font=('arial',18),bg='pink',width=20,height=3,command=changing_clothes_infos)
-change_price_commande.place(x=750,y=heighty-230)
+
+change_price_commande=CTkButton(main_window,command=changing_clothes_infos,corner_radius=15,fg_color="pink",width=70,height=70,text="Changer le prix",text_color="black",text_font=('arial',15),bg_color="grey",hover=True,hover_color='light pink')
+change_price_commande.place(x=640,y=heighty-270)
 #_____________________________________________________
 #change the theme of the screen 
 theme_counter=0
@@ -340,7 +347,7 @@ def change_theme() :
         Prix_total_label_value.config(bg='SystemButtonFace',fg="black")
         delete_client_Label.config(bg='SystemButtonFace',fg='red')
 Theme_Button=Button(width=15,height=2,text='Changer le theme',bg='black',command=change_theme,fg='white')
-Theme_Button.place(x=widthx-220,y=50)
+Theme_Button.place(x=widthx-400,y=10)
 #not paid_clients button -> shows all the records about the clients who doesn't pay yet
 def show_all_unpaid() :
     database_connect=sqlite3.connect('Pressing_base_donne.db')
@@ -366,12 +373,15 @@ def show_all_unpaid() :
     for i in range(len(all_record_unpaid)) :
         all_records_treeview_unpaid.insert('',"end",values=(all_record_unpaid[i][0],all_record_unpaid[i][1],all_record_unpaid[i][2],all_record_unpaid[i][3],all_record_unpaid[i][4],all_record_unpaid[i][5],all_record_unpaid[i][6]))
     database_connect.commit()
-not_paid_clients=Button(width=20,height=3,font=('arial',18),command=show_all_unpaid,text="Clients non payé",bg='purple',fg='white')
-not_paid_clients.place(x=450,y=heighty-230)
+
+not_paid_clients=CTkButton(command=show_all_unpaid,corner_radius=15,bg_color='grey',fg_color="purple",width=70,height=70,text="Clients non payé",text_color="white",text_font=('arial',15)
+,hover=True,hover_color='purple')
+not_paid_clients.place(x=450,y=heighty-270)
 #deleting button -> only accessible by the owner with a code that he can only set
+
 def delete_client() :
     def done_password(event) :
-        if Enter_password.get()=='22307127' :#the owner can set this password 
+        if Enter_password.get()=='1234' :#the owner can set this password 
          delete_window_client=Toplevel()
          delete_window_client.geometry(str(widthx)+"x"+str(heighty))
          delete_window_client.title("Supprimer un client")
@@ -420,8 +430,9 @@ def delete_client() :
     Password_label=Label(delete_window,width=20,text="Entrer le mot de passe\ncliquez sur entrer",fg="red",font=('arial',15))
     Password_label.pack()
     delete_window.bind('<Return>',done_password)    
-delete_client_button=Button(main_window,font=('arial',18),width=15,height=3,text="Supprimer un client",bg='red',fg='white',command=delete_client)
-delete_client_button.place(x=widthx-400,y=590)
+delete_client_button=CTkButton(main_window,command=delete_client,corner_radius=15,fg_color="red",width=70,height=70,text="Supprimer un client",text_color="black",text_font=('arial',15),hover=True,hover_color='light red')
+delete_client_button.place(x=850,y=500)
 delete_client_Label=Label(width=30,text="Ce bouton n'est accessible \n qu'au propriétaire principal",fg='red',font=('arial',15))
-delete_client_Label.place(x=widthx-450,y=700)
+delete_client_Label.place(x=830,y=600)
+
 main_window.mainloop()
