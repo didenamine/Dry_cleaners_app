@@ -372,7 +372,7 @@ def show_all_unpaid() :
     all_records_treeview_unpaid.heading(7,text='Payé')
     for i in range(len(all_record_unpaid)) : 
         all_records_treeview_unpaid.insert('',"end",values=(all_record_unpaid[i][0],all_record_unpaid[i][1],all_record_unpaid[i][2],all_record_unpaid[i][3],all_record_unpaid[i][4],all_record_unpaid[i][5],all_record_unpaid[i][6]))
-    database_connect.commit()
+    database_connect.commit() 
 
 not_paid_clients=CTkButton(command=show_all_unpaid,corner_radius=15,bg_color='grey',fg_color="purple",width=70,height=70,text="Clients non payé",text_color="white",text_font=('arial',15)
 ,hover=True,hover_color='purple')

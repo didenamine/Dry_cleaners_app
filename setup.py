@@ -5,7 +5,7 @@ from cx_Freeze import setup,Executable
 files=['Pressing_base_donne.db','icon.ico']
 
 target=Executable(
-    script="Pressing_app.py",
+    script="Pressing_app.py", 
     base="Win32GUI",
     icon='icon.ico'
 )

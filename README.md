@@ -10,7 +10,7 @@ _________________________________________________________
 there is an option where you can choose the clothe name and under it the quantity 
 then there is the add to the command which will add the chosen clothe to the total command but it won't be commited 
 until the whole commande is done which is the function of the last button after the paid Yes or No option       
-________________________________________________________
+________________________________________________________ 
 The other buttons are <br />
 1 show all records of the clients 'that paid'<br /> 
 2 show all records of the clients 'that didn't pay'<br />
