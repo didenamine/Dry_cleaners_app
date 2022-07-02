@@ -321,6 +321,7 @@ def change_theme() :
     global theme_counter 
     theme_counter+=1
     if theme_counter%2!=0 :
+        #black theme 
         Theme_Button.config(bg='white',fg='black')
         main_window.config(bg='black')
         Name_client_Label.config(bg='black',fg="white")
@@ -430,7 +431,7 @@ def delete_client() :
     Password_label=Label(delete_window,width=20,text="Entrer le mot de passe\ncliquez sur entrer",fg="red",font=('arial',15))
     Password_label.pack()
     delete_window.bind('<Return>',done_password)    
-delete_client_button=CTkButton(main_window,command=delete_client,corner_radius=15,fg_color="red",width=70,height=70,text="Supprimer un client",text_color="black",text_font=('arial',15),hover=True,hover_color='light red')
+delete_client_button=CTkButton(main_window,command=delete_client,corner_radius=15,fg_color="red",width=70,height=70,text="Supprimer un client",text_color="black",text_font=('arial',15),hover=True)
 delete_client_button.place(x=850,y=500)
 delete_client_Label=Label(width=30,text="Ce bouton n'est accessible \n qu'au propriétaire principal",fg='red',font=('arial',15))
 delete_client_Label.place(x=830,y=600)
