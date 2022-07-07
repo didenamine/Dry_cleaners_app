@@ -11,7 +11,7 @@ search_records=[]
 clothes=[]
 prices=[]
 clothe_ID=[]
-database_connect=sqlite3.connect('Pressing_base_donne.db')
+database_connect=sqlite3.connect('Dry_cleaners_app_data.db')
 database_cursor=database_connect.cursor()
 database_cursor.execute("SELECT ID,clothe_name,clothe_price from CLOTHES")
 clothes_all=database_cursor.fetchall()
@@ -124,7 +124,7 @@ def save_commande() :
       global to_add_inside_sql
       global price_total
       global treeview_counter
-      database_connect=sqlite3.connect('Pressing_base_donne.db')
+      database_connect=sqlite3.connect('Dry_cleaners_app_data.db')
       database_cursor=database_connect.cursor()
       for i in range(len(to_add_inside_sql)) :
         today=date.today()
@@ -191,7 +191,7 @@ Delete_from_treeviex.place(x=600,y=310)
 #____________________________________________________________________
 #all records
 def show_all_records() :
-    database_connect=sqlite3.connect('Pressing_base_donne.db')
+    database_connect=sqlite3.connect('Dry_cleaners_app_data.db')
     database_cursor=database_connect.cursor()
     database_cursor.execute("SELECT name_client,prename_client,phone_client,date_commande,hour_commande,sum(clothe_total_price),Paid_y_n from COMMANDE where Paid_y_n='OUI' GROUP BY phone_client,name_client,prename_client order by phone_client ASC,date_commande ASC,hour_commande ASC")
     all_record=database_cursor.fetchall()
@@ -241,7 +241,7 @@ def search_about_commande () :
     def search_about_client() :
        global treeview_search_counter
        global search_records
-       database_connect=sqlite3.connect('Pressing_base_donne.db')
+       database_connect=sqlite3.connect('Dry_cleaners_app_data.db')
        database_cursor=database_connect.cursor()
        database_cursor.execute("SELECT name_client,prename_client,phone_client,date_commande,hour_commande,sum(clothe_total_price) as Total_commade,Paid_y_n from COMMANDE where phone_client=('%s') and Paid_y_n='NON' group by date_commande,name_client "%str(Numero_tlf_client_search_entry.get()))
        search_records=database_cursor.fetchall()
@@ -268,7 +268,7 @@ def search_about_commande () :
     def paid_done() :
        global search_records
        x=commands_treeview_search.focus()
-       database_connect=sqlite3.connect('Pressing_base_donne.db')
+       database_connect=sqlite3.connect('Dry_cleaners_app_data.db')
        database_cursor=database_connect.cursor()
        phone_get=search_records[int(x)][2]
        name_get=search_records[int(x)][0]
@@ -299,7 +299,7 @@ def changing_clothes_infos() :
     for i in range(len(clothes)) :
         commands_frame_search_treeview.insert('','end',iid=i,values=(clothes[i],prices[i]))
     def change_price_fun() :
-       database_connect=sqlite3.connect('Pressing_base_donne.db')
+       database_connect=sqlite3.connect('Dry_cleaners_app_data.db')
        database_cursor=database_connect.cursor()
        x=commands_frame_search_treeview.focus()
        database_cursor.execute("UPDATE CLOTHES set clothe_price =(?) where clothe_name=(?)",(float(change_entry.get()),clothes[int(x)]))
@@ -351,7 +351,7 @@ Theme_Button=Button(width=15,height=2,text='Changer le theme',bg='black',command
 Theme_Button.place(x=widthx-400,y=10)
 #not paid_clients button -> shows all the records about the clients who doesn't pay yet
 def show_all_unpaid() :
-    database_connect=sqlite3.connect('Pressing_base_donne.db')
+    database_connect=sqlite3.connect('Dry_cleaners_app_data.db')
     database_cursor=database_connect.cursor()
     database_cursor.execute("SELECT name_client,prename_client,phone_client,date_commande,hour_commande,sum(clothe_total_price),Paid_y_n from COMMANDE where Paid_y_n='NON' GROUP BY phone_client,name_client,prename_client order by phone_client ASC,date_commande ASC,hour_commande ASC")
     all_record_unpaid=database_cursor.fetchall()
@@ -386,7 +386,7 @@ def delete_client() :
          delete_window_client=Toplevel()
          delete_window_client.geometry(str(widthx)+"x"+str(heighty))
          delete_window_client.title("Supprimer un client")
-         database_connect=sqlite3.connect('Pressing_base_donne.db')
+         database_connect=sqlite3.connect('Dry_cleaners_app_data.db')
          database_cursor=database_connect.cursor()
          database_cursor.execute("SELECT name_client,prename_client,phone_client,date_commande,hour_commande,sum(clothe_total_price),Paid_y_n from COMMANDE GROUP BY phone_client,name_client,prename_client order by phone_client ASC,date_commande ASC,hour_commande ASC")
          all_record=database_cursor.fetchall()
@@ -404,7 +404,7 @@ def delete_client() :
          all_records_treeview.heading(6,text='prix_total')
          all_records_treeview.heading(7,text='Payé')
          def Supprimer() :
-          database_connect=sqlite3.connect('Pressing_base_donne.db')
+          database_connect=sqlite3.connect('Dry_cleaners_app_data.db')
           database_cursor=database_connect.cursor()
           x=all_records_treeview.focus()
           to_be_deleted=all_record[int(x)][2]
