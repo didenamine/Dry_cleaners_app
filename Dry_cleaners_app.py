@@ -23,7 +23,7 @@ main_window=Tk()
 #Frame of the buttons 
 Buttons_frame=Frame(main_window,bg='grey',width=400,height=190)
 Buttons_frame.place(x=430,y=500)
-#window things
+#window stuff
 main_window.title("Pressing El fessi")
 main_window.attributes('-fullscreen', True)  
 main_window.bind("<F11>",lambda event: main_window.attributes("-fullscreen",not main_window.attributes("-fullscreen")))
@@ -64,7 +64,7 @@ clothes_choice_label.place(x=6,y=170)
 clothes_choice=OptionMenu(main_window,clothes_name,*clothes)
 clothes_choice.place(x=220,y=165)
 clothes_choice.config(font='arial')
-quantity=[1,2,3,4,5,6,7,8,9,10]
+quantity=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 clothes_choice_quantity=Label(width=12,text="Quantité  :",font=("araial",18))
 clothes_choice_quantity.place(x=1,y=220)
 quantity_value=StringVar()
@@ -435,5 +435,4 @@ delete_client_button=CTkButton(main_window,command=delete_client,corner_radius=1
 delete_client_button.place(x=850,y=500)
 delete_client_Label=Label(width=30,text="Ce bouton n'est accessible \n qu'au propriétaire principal",fg='red',font=('arial',15))
 delete_client_Label.place(x=830,y=600)
-
 main_window.mainloop()
